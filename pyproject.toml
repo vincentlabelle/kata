@@ -1,0 +1,33 @@
+[project]
+name = "kata"
+version = "0.1.0"
+description = ""
+authors = [{ name = "Vincent Labelle", email = "vetches_canto_0s@icloud.com" }]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+pytest-cov = "^6.2.1"
+mypy = "^1.16.1"
+ruff = "^0.12.0"
+
+[tool.mypy]
+strict = true
+pretty = true
+
+[tool.ruff]
+line-length = 80
+
+[tool.ruff.lint]
+select = ["E", "F", "C", "I", "A", "S", "PLR6301"]
+preview = true
+dummy-variable-rgx = "^_$"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**.py" = ["S", "PLR6301"]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
