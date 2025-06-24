@@ -1,60 +1,68 @@
 from kata.linked.snode import SNode
 
 
-class Stack[T]:
-    """Representation of a stack of `T`."""
+class Queue[T]:
+    """Representation of a queue of `T`."""
 
     def __init__(self) -> None:
         self._head: SNode[T] | None = None
+        self._tail: SNode[T] | None = None
 
-    def push(self, value: T) -> None:
-        """Push `value` onto the stack. The time complexity of this operation
+    def enqueue(self, value: T) -> None:
+        """Enqueue `value` onto the queue. The time complexity of this operation
         is O(1).
 
         Parameters
         ----------
         value : T
-            Value to push onto the stack.
+            Value to enqueue onto the queue.
         """
-        self._head = SNode(value, self._head)
+        node = SNode(value)
+        if self._tail is None:
+            self._head = node
+        else:
+            self._tail.next = node
+        self._tail = node
 
     def peek(self) -> T | None:
-        """Peek at the value which is currently at the top of the stack. The
+        """Peek at the value which is currently at the end of the queue. The
         time complexity of this operation is O(1).
 
         Returns
         -------
         T | None
-            The value at the top of the stack or `None` if the stack is empty.
+            The value at the end of the queue or `None` if the queue is empty.
         """
         if self._head is None:
             return None
         return self._head.value
 
-    def pop(self) -> T:
-        """Pop from the stack. The time complexity of this operation is O(1).
+    def deque(self) -> T:
+        """Deque from the queue. The time complexity of this operation is O(1).
 
         Raises
         ------
         RuntimeError
-            Raised when the stack is empty.
+            Raised when the queue is empty.
 
         Returns
         -------
         T
-            Popped value.
+            Dequeued value.
         """
-        self._raise_if_empty()
-        return self._pop()
+        self._raise_if_is_empty()
+        return self._deque()
 
-    def _raise_if_empty(self) -> None:
+    def _raise_if_is_empty(self) -> None:
         if self._head is None:
-            message = "cannot pop from stack; stack is empty"
+            message = "cannot deque from queue; queue is empty"
             raise RuntimeError(message)
 
-    def _pop(self) -> T:
+    def _deque(self) -> T:
         head: SNode[T] = self._head  # type: ignore[assignment]
         self._head = head.next
+        if self._head is None:
+            self._tail = None
         return head.value
 
     def __eq__(self, other: object, /) -> bool:
