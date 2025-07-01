@@ -21,13 +21,13 @@ def traverse(node: BNode[T]) -> list[T]:
         The values contained in the binary tree.
     """
     path: list[T] = []
-    _walk(node, path)
+    _traverse(node, path)
     return path
 
 
-def _walk(node: BNode[T] | None, path: list[T]) -> None:
+def _traverse(node: BNode[T] | None, path: list[T]) -> None:
     if node is None:
         return
     path.append(node.value)
-    _walk(node.left, path)
-    _walk(node.right, path)
+    _traverse(node.left, path)
+    _traverse(node.right, path)
