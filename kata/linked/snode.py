@@ -9,7 +9,7 @@ class SNode[T]:
     value : T
         Value of the node.
     next_ : Self | None
-        Next node in the linked list.
+        Next node in the linked list, defaults to `None`.
     """
 
     def __init__(self, value: T, next_: Self | None = None) -> None:
