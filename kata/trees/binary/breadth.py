@@ -1,12 +1,8 @@
-from typing import TypeVar
-
 from kata.linked.queue import Queue
 from kata.trees.bnode import BNode
 
-T = TypeVar("T")
 
-
-def traverse(node: BNode[T]) -> list[T]:
+def traverse[T](node: BNode[T]) -> list[T]:
     """Traverse the binary tree repesented by `node`, and obtain the values
     it contains. The traversal is done using breadth-first search. The time
     complexity is O(n).

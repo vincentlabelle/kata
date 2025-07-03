@@ -1,11 +1,7 @@
-from typing import TypeVar
-
 from kata.trees.bnode import BNode
 
-T = TypeVar("T")
 
-
-def exists(node: BNode[T], value: T) -> bool:
+def exists[T](node: BNode[T], value: T) -> bool:
     """Verify if `value` is inside the binary search tree represented by `node`.
     The time complexity is between O(log(n)) and O(n).
 
@@ -32,7 +28,7 @@ def exists(node: BNode[T], value: T) -> bool:
     return _exists(node, value)
 
 
-def _exists(node: BNode[T] | None, value: T) -> bool:
+def _exists[T](node: BNode[T] | None, value: T) -> bool:
     if node is None:
         return False
     if node.value == value:

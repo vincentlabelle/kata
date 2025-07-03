@@ -1,47 +1,27 @@
 import pytest
 
 from kata.trees.bnode import BNode
-from kata.trees.bst import exists
+from kata.trees.search.insert import insert
 
 
-class TestExists:
+class TestInsert:
     @pytest.mark.parametrize(
         "node, value, expected",
         [
-            (BNode(0), -1, False),
-            (BNode(0), 0, True),
-            (BNode(0), 1, False),
-            (BNode(0, left=BNode(-1)), -2, False),
-            (BNode(0, left=BNode(-1)), -1, True),
-            (BNode(0, left=BNode(-1)), 0, True),
-            (BNode(0, left=BNode(-1)), 1, False),
-            (BNode(0, right=BNode(1)), -1, False),
-            (BNode(0, right=BNode(1)), 0, True),
-            (BNode(0, right=BNode(1)), 1, True),
-            (BNode(0, right=BNode(1)), 2, False),
-            (BNode(0, left=BNode(-1), right=BNode(1)), -2, False),
-            (BNode(0, left=BNode(-1), right=BNode(1)), -1, True),
-            (BNode(0, left=BNode(-1), right=BNode(1)), 0, True),
-            (BNode(0, left=BNode(-1), right=BNode(1)), 1, True),
-            (BNode(0, left=BNode(-1), right=BNode(1)), 2, False),
             (
-                BNode(
-                    0,
-                    left=BNode(
-                        -10,
-                        left=BNode(-20),
-                    ),
-                    right=BNode(
-                        100,
-                        left=BNode(50),
-                        right=BNode(
-                            150,
-                            right=BNode(200),
-                        ),
-                    ),
-                ),
-                -10,
-                True,
+                BNode(0),
+                1,
+                BNode(0, right=BNode(1)),
+            ),
+            (
+                BNode(0),
+                0,
+                BNode(0, left=BNode(0)),
+            ),
+            (
+                BNode(0),
+                -1,
+                BNode(0, left=BNode(-1)),
             ),
             (
                 BNode(
@@ -59,8 +39,23 @@ class TestExists:
                         ),
                     ),
                 ),
-                200,
-                True,
+                -1,
+                BNode(
+                    0,
+                    left=BNode(
+                        -10,
+                        left=BNode(-20),
+                        right=BNode(-1),
+                    ),
+                    right=BNode(
+                        100,
+                        left=BNode(50),
+                        right=BNode(
+                            150,
+                            right=BNode(200),
+                        ),
+                    ),
+                ),
             ),
             (
                 BNode(
@@ -79,9 +74,27 @@ class TestExists:
                     ),
                 ),
                 250,
-                False,
+                BNode(
+                    0,
+                    left=BNode(
+                        -10,
+                        left=BNode(-20),
+                    ),
+                    right=BNode(
+                        100,
+                        left=BNode(50),
+                        right=BNode(
+                            150,
+                            right=BNode(
+                                200,
+                                right=BNode(250),
+                            ),
+                        ),
+                    ),
+                ),
             ),
         ],
     )
-    def test(self, node: BNode[int], value: int, expected: bool) -> None:
-        assert exists(node, value) is expected
+    def test(self, node: BNode[int], value: int, expected: BNode[int]) -> None:
+        insert(node, value)
+        assert node == expected
