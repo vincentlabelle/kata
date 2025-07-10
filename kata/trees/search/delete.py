@@ -3,6 +3,7 @@ from kata.trees.bnode import BNode
 
 def delete[T](node: BNode[T], value: T) -> BNode[T] | None:
     """Delete `value` from the binary search tree represented by `node`.
+    The time complexity is between O(log(n)) and O(n).
 
     Parameters
     ----------
