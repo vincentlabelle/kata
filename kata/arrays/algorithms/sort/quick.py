@@ -2,8 +2,9 @@ def sort(array: list[int]) -> None:
     """Sort `array` using quicksort. The time complexity is between O(nlog(n))
     and O(n^2).
 
-    Quicksort uses a pivot, and at each iteration puts all the elements lower
-    than or equal to itself on the left and side of the array slice.
+    Quicksort uses a pivot (i.e., partitioning), and at each iteration puts all
+    the elements lower than or equal to the pivot on the left-end side of the
+    array slice (including the pivot itself).
 
     The time complexity can be O(n^2). An example, is if we choose the rightmost
     element as the pivot and the array is already sorted. Therefore, the pivot
