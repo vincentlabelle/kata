@@ -1,7 +1,7 @@
 import pytest
 
-from kata.trees.algorithms.search.delete import delete
-from kata.trees.structures.bnode import BNode
+from kata.bstrees.algorithms.delete import delete
+from kata.btrees.structures.bnode import BNode
 
 
 class TestDelete:

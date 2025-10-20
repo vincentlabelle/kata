@@ -1,4 +1,4 @@
-from kata.trees.structures.bnode import BNode
+from kata.btrees.structures.bnode import BNode
 
 
 def insert[T](node: BNode[T], value: T) -> None:

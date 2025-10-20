@@ -1,4 +1,4 @@
-from kata.trees.structures.bnode import BNode
+from kata.btrees.structures.bnode import BNode
 
 
 def delete[T](node: BNode[T], value: T) -> BNode[T] | None:

@@ -1,5 +1,5 @@
+from kata.btrees.structures.bnode import BNode
 from kata.queues.structures.queue import Queue
-from kata.trees.structures.bnode import BNode
 
 
 def traverse[T](node: BNode[T]) -> list[T]:

@@ -2,7 +2,7 @@ from typing import Any
 
 import pytest
 
-from kata.trees.structures.bnode import BNode
+from kata.btrees.structures.bnode import BNode
 
 
 class TestBNodeEq:
