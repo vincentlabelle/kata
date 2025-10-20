@@ -1,6 +1,6 @@
 import pytest
 
-from kata.linked.structures.queue import Queue
+from kata.queues.structures.queue import Queue
 
 
 @pytest.fixture

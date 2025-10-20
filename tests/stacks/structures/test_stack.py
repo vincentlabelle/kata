@@ -1,6 +1,6 @@
 import pytest
 
-from kata.linked.structures.stack import Stack
+from kata.stacks.structures.stack import Stack
 
 
 @pytest.fixture
