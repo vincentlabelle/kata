@@ -1,27 +1,47 @@
 import pytest
 
-from kata.bstrees.algorithms.insert import insert
+from kata.bstrees.algorithms.contains import contains
 from kata.btrees.structures.bnode import BNode
 
 
-class TestInsert:
+class TestContains:
     @pytest.mark.parametrize(
         "node, value, expected",
         [
+            (BNode(0), -1, False),
+            (BNode(0), 0, True),
+            (BNode(0), 1, False),
+            (BNode(0, left=BNode(-1)), -2, False),
+            (BNode(0, left=BNode(-1)), -1, True),
+            (BNode(0, left=BNode(-1)), 0, True),
+            (BNode(0, left=BNode(-1)), 1, False),
+            (BNode(0, right=BNode(1)), -1, False),
+            (BNode(0, right=BNode(1)), 0, True),
+            (BNode(0, right=BNode(1)), 1, True),
+            (BNode(0, right=BNode(1)), 2, False),
+            (BNode(0, left=BNode(-1), right=BNode(1)), -2, False),
+            (BNode(0, left=BNode(-1), right=BNode(1)), -1, True),
+            (BNode(0, left=BNode(-1), right=BNode(1)), 0, True),
+            (BNode(0, left=BNode(-1), right=BNode(1)), 1, True),
+            (BNode(0, left=BNode(-1), right=BNode(1)), 2, False),
             (
-                BNode(0),
-                1,
-                BNode(0, right=BNode(1)),
-            ),
-            (
-                BNode(0),
-                0,
-                BNode(0, left=BNode(0)),
-            ),
-            (
-                BNode(0),
-                -1,
-                BNode(0, left=BNode(-1)),
+                BNode(
+                    0,
+                    left=BNode(
+                        -10,
+                        left=BNode(-20),
+                    ),
+                    right=BNode(
+                        100,
+                        left=BNode(50),
+                        right=BNode(
+                            150,
+                            right=BNode(200),
+                        ),
+                    ),
+                ),
+                -10,
+                True,
             ),
             (
                 BNode(
@@ -39,23 +59,8 @@ class TestInsert:
                         ),
                     ),
                 ),
-                -1,
-                BNode(
-                    0,
-                    left=BNode(
-                        -10,
-                        left=BNode(-20),
-                        right=BNode(-1),
-                    ),
-                    right=BNode(
-                        100,
-                        left=BNode(50),
-                        right=BNode(
-                            150,
-                            right=BNode(200),
-                        ),
-                    ),
-                ),
+                200,
+                True,
             ),
             (
                 BNode(
@@ -74,27 +79,9 @@ class TestInsert:
                     ),
                 ),
                 250,
-                BNode(
-                    0,
-                    left=BNode(
-                        -10,
-                        left=BNode(-20),
-                    ),
-                    right=BNode(
-                        100,
-                        left=BNode(50),
-                        right=BNode(
-                            150,
-                            right=BNode(
-                                200,
-                                right=BNode(250),
-                            ),
-                        ),
-                    ),
-                ),
+                False,
             ),
         ],
     )
-    def test(self, node: BNode[int], value: int, expected: BNode[int]) -> None:
-        insert(node, value)
-        assert node == expected
+    def test(self, node: BNode[int], value: int, expected: bool) -> None:
+        assert contains(node, value) is expected

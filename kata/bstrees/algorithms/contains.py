@@ -1,7 +1,7 @@
 from kata.btrees.structures.bnode import BNode
 
 
-def exists[T](node: BNode[T], value: T) -> bool:
+def contains[T](node: BNode[T], value: T) -> bool:
     """Verify if `value` is inside the binary search tree represented by `node`.
     The time complexity is between O(log(n)) and O(n).
 
@@ -25,14 +25,14 @@ def exists[T](node: BNode[T], value: T) -> bool:
     bool
         `True` if `value` is in the binary search tree, else `False`.
     """
-    return _exists(node, value)
+    return _contains(node, value)
 
 
-def _exists[T](node: BNode[T] | None, value: T) -> bool:
+def _contains[T](node: BNode[T] | None, value: T) -> bool:
     if node is None:
         return False
     if node.value == value:
         return True
     if node.value < value:  # type: ignore[operator]
-        return _exists(node.right, value)
-    return _exists(node.left, value)
+        return _contains(node.right, value)
+    return _contains(node.left, value)

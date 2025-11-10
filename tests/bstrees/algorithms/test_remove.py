@@ -1,10 +1,10 @@
 import pytest
 
-from kata.bstrees.algorithms.delete import delete
+from kata.bstrees.algorithms.remove import remove
 from kata.btrees.structures.bnode import BNode
 
 
-class TestDelete:
+class TestRemove:
     @pytest.mark.parametrize(
         "node, expected",
         [
@@ -281,4 +281,4 @@ class TestDelete:
         ],
     )
     def test(self, node: BNode[int], expected: BNode[int]) -> None:
-        assert delete(node, 100) == expected
+        assert remove(node, 100) == expected
