@@ -1,6 +1,6 @@
 import pytest
 
-from kata.btrees.algorithms.depth import traverse
+from kata.btrees.algorithms.traverse.breadth import traverse
 from kata.btrees.structures.bnode import BNode
 
 
@@ -40,7 +40,7 @@ class TestTraverse:
                     ),
                     right=BNode(2),
                 ),
-                [0, 1, 3, 2],
+                [0, 1, 2, 3],
             ),
             (
                 BNode(
@@ -59,7 +59,7 @@ class TestTraverse:
                         ),
                     ),
                 ),
-                [0, 1, 3, 4, 2, 5, 6, 7],
+                [0, 1, 2, 3, 4, 5, 6, 7],
             ),
         ],
     )
