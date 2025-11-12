@@ -17,7 +17,22 @@ class Trie:
         ----------
         word : str
             Word to add.
+
+        Raises
+        ------
+        ValueError
+            Raised when `word` is empty.
         """
+        self._raise_if_empty(word)
+        self._add(word)
+
+    @staticmethod
+    def _raise_if_empty(word: str) -> None:
+        if len(word) == 0:
+            message = "cannot add word; word cannot be empty"
+            raise ValueError(message)
+
+    def _add(self, word: str) -> None:
         node: TNode | None = self._root
         for char in word:
             assert node is not None  # noqa: S101

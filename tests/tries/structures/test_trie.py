@@ -13,6 +13,27 @@ def trie() -> Trie:
     return trie
 
 
+class TestTrieAdd:
+    @pytest.mark.parametrize(
+        "words",
+        [
+            ("a",),
+            ("ab",),
+            ("a", "ab"),
+            ("ab", "a"),
+        ],
+    )
+    def test_when_succeeds(self, trie: Trie, words: tuple[str, ...]) -> None:
+        for word in words:
+            trie.add(word)
+        actual = trie.complete(words[-1])
+        assert "" in actual
+
+    def test_when_raises_value_error(self, trie: Trie) -> None:
+        with pytest.raises(ValueError):
+            trie.add("")
+
+
 class TestTrieComplete:
     @pytest.mark.parametrize(
         "prefix, expected",
@@ -25,7 +46,7 @@ class TestTrieComplete:
             ("z", ()),
         ],
     )
-    def test(
+    def test_when_non_empty(
         self,
         trie: Trie,
         prefix: str,
@@ -33,6 +54,12 @@ class TestTrieComplete:
     ) -> None:
         actual = trie.complete(prefix)
         assert actual == expected
+
+    @pytest.mark.parametrize("prefix", ["", "z"])
+    def test_when_empty(self, prefix: str) -> None:
+        trie = Trie()
+        actual = trie.complete(prefix)
+        assert len(actual) == 0
 
 
 class TestTrieEq:
