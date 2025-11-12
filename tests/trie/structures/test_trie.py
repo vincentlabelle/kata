@@ -2,7 +2,7 @@ import pytest
 
 from kata.trie.structures.trie import Trie
 
-_WORDS = ("cat", "catnip", "caterpillar", "cop", "cooler", "cool", "sound")
+_WORDS = ["cat", "catnip", "caterpillar", "cop", "cooler", "cool", "sound"]
 
 
 @pytest.fixture(scope="function")
@@ -39,18 +39,18 @@ class TestTrieComplete:
         "prefix, expected",
         [
             ("", _WORDS),
-            ("s", ("ound",)),
-            ("coo", ("ler", "l")),
-            ("cool", ("er", "")),
-            ("cop", ("",)),
-            ("z", ()),
+            ("s", ["ound"]),
+            ("coo", ["ler", "l"]),
+            ("cool", ["er", ""]),
+            ("cop", [""]),
+            ("z", []),
         ],
     )
     def test_when_non_empty(
         self,
         trie: Trie,
         prefix: str,
-        expected: tuple[str, ...],
+        expected: list[str],
     ) -> None:
         actual = trie.complete(prefix)
         assert actual == expected

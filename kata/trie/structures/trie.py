@@ -42,7 +42,7 @@ class Trie:
         assert node is not None  # noqa: S101
         node[self._FLAG] = None
 
-    def complete(self, prefix: str) -> tuple[str, ...]:
+    def complete(self, prefix: str) -> list[str]:
         """Find the suffixes which once combined with `prefix` form a word.
 
         The time complexity of this operation is O(k + m), where k is the length
@@ -55,12 +55,12 @@ class Trie:
 
         Returns
         -------
-        tuple[str, ...]
+        list[str]
             The suffixes.
         """
         node = self._search(prefix)
         if node is None:
-            return ()
+            return []
         return self._collect(node)
 
     def _search(self, prefix: str) -> TNode | None:
@@ -74,11 +74,11 @@ class Trie:
             node = node[char]
         return node
 
-    def _collect(self, node: TNode) -> tuple[str, ...]:
+    def _collect(self, node: TNode) -> list[str]:
         # The time complexity of this operation is O(n)
         suffixes: list[str] = []
         self.__collect(node, suffixes)
-        return tuple(suffixes)
+        return suffixes
 
     def __collect(
         self,
