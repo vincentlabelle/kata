@@ -1,0 +1,55 @@
+from kata.btree.structures.bnode import BNode
+
+
+def remove[T](node: BNode[T], value: T) -> BNode[T] | None:
+    """Remove `value` from the binary search tree represented by `node`.
+    The time complexity is between O(log(n)) and O(n).
+
+    Parameters
+    ----------
+    node : BNode[T]
+        Root of the binary search tree.
+    value : T
+        Value to remove.
+
+    Raises
+    ------
+    TypeError
+        Raised when `T` doesn't support the `<` operator.
+
+    Returns
+    -------
+    BNode[T] | None
+        Root of the new tree.
+    """
+    return _remove(node, value)
+
+
+def _remove[T](node: BNode[T] | None, value: T) -> BNode[T] | None:
+    if node is None:
+        return None
+
+    if node.value == value:
+        return __remove(node)
+
+    if node.value < value:  # type: ignore[operator]
+        node.right = _remove(node.right, value)
+    else:
+        node.left = _remove(node.left, value)
+    return node
+
+
+def __remove[T](node: BNode[T]) -> BNode[T] | None:
+    if node.left is None:
+        return node.right
+    if node.right is None:
+        return node.left
+    node.value = _maximum(node.left)
+    node.left = _remove(node.left, node.value)
+    return node
+
+
+def _maximum[T](node: BNode[T]) -> T:
+    if node.right is None:
+        return node.value
+    return _maximum(node.right)
