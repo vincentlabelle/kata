@@ -2,7 +2,7 @@ from kata.graph.structures.vertex import Vertex
 
 
 def traverse[T](vertex: Vertex[T]) -> list[T]:
-    """Traverse the vertices connected to `vertex` using depth-first search,
+    """Traverse the vertices reachable from `vertex` using depth-first search,
     and obtain the values.
 
     The time complexity of this operation is O(v + e).
@@ -15,7 +15,7 @@ def traverse[T](vertex: Vertex[T]) -> list[T]:
     Returns
     -------
     list[T]
-        The values contained in the connected graph starting at `vertex`.
+        The values contained in the vertices reachable from `vertex`.
     """
     seen: dict[Vertex[T], bool] = {}
     _traverse(vertex, seen)
