@@ -1,5 +1,5 @@
 def intersect[T](a: list[T], b: list[T]) -> list[T]:
-    """Get the intesection of two arrays. The time complexity of this algorithm
+    """Get the intersection of two arrays. The time complexity of this algorithm
     is O(n + m).
 
     Parameters

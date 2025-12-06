@@ -1,6 +1,6 @@
 def search[T](array: list[T]) -> T | None:
-    """Search for the first duplicated value in an array. The time complexity of
-    this operation is O(n).
+    """Search for the first duplicated value in `array`. The time complexity of
+    this algorithm is O(n).
 
     Parameters
     ----------
