@@ -10,6 +10,15 @@ class SLinked[T]:
         self._head: SNode[T] | None = None
         self._len = 0
 
+    def reverse(self) -> None:
+        """Reverse this list in-place."""
+        previous, current = None, self._head
+        while current is not None:
+            next_ = current.next
+            current.next = previous
+            previous, current = current, next_
+        self._head = previous
+
     def insert(self, index: int, value: T) -> None:
         """Insert `value` before `index` in this list. The time complexity of
         this operation is O(1) if `index == 0`, otherwise it is O(n).

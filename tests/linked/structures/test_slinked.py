@@ -18,6 +18,32 @@ def empty() -> SLinked[int]:
     return SLinked()
 
 
+class TestSLinkedReverse:
+    def test_when_empty(self, empty: SLinked[int]) -> None:
+        expected: SLinked[int] = SLinked()
+        empty.reverse()
+        assert empty == expected
+
+    def test_when_one(self) -> None:
+        expected: SLinked[int] = SLinked()
+        expected.append(0)
+
+        linked: SLinked[int] = SLinked()
+        linked.append(0)
+        linked.reverse()
+
+        assert linked == expected
+
+    def test_when_many(self, linked: SLinked[int]) -> None:
+        expected: SLinked[int] = SLinked()
+        for values in _VALUES:
+            expected.prepend(values)
+
+        linked.reverse()
+
+        assert linked == expected
+
+
 class TestSLinkedInsert:
     def test_when_succeeds(self) -> None:
         expected: SLinked[int] = SLinked()
