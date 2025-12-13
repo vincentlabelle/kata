@@ -1,0 +1,18 @@
+from kata.linked.structures.snode import SNode
+
+
+def remove[T](node: SNode[T]) -> None:
+    """Remove `node` from the linked list it is a part of while preserving the
+    entire remaining list. The time complexity of this operation is O(1).
+
+    This is a no-op if `node` is the last node of the linked list.
+
+    Parameters
+    ----------
+    node : SNode[T]
+        Node to remove.
+    """
+    if node.next is None:
+        return
+    node.value = node.next.value
+    node.next = node.next.next
