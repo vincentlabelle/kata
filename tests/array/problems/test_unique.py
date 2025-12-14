@@ -1,6 +1,6 @@
 import pytest
 
-from kata.array.problems.nonduplicate import search
+from kata.array.problems.unique import search
 
 
 class TestSearch:
