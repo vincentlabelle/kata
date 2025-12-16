@@ -18,6 +18,7 @@ class TestMaximum:
             ([1, 3, 2], 2),
             ([2, 1, 3], 2),
             ([10, 7, 5, 8, 7, 11, 2, 6], 6),
+            ([10, 7, 5, 8, 7, 11, 2, 6, 20], 18),
         ],
     )
     def test(self, array: list[int], expected: int) -> None:
