@@ -1,9 +1,9 @@
 import pytest
 
-from kata.array.problems.sumswap import swap
+from kata.array.problems.sum_swap import sum_swap
 
 
-class TestSwap:
+class TestSumSwap:
     @pytest.mark.parametrize(
         "one, two, expected",
         [
@@ -24,4 +24,4 @@ class TestSwap:
         two: list[int],
         expected: tuple[int, int] | None,
     ) -> None:
-        assert swap(one, two) == expected
+        assert sum_swap(one, two) == expected

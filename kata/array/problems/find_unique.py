@@ -1,6 +1,7 @@
-def search[T](array: list[T]) -> T | None:
-    """Search for the first non-duplicated value in `array`. The time complexity
-    of this algorithm is O(n).
+def find_unique[T](array: list[T]) -> T | None:
+    """Search for the first non-duplicated value in `array`.
+
+    The algorithm must run in O(n) time.
 
     Parameters
     ----------

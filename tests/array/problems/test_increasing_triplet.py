@@ -1,9 +1,9 @@
 import pytest
 
-from kata.array.problems.trend import has_trend
+from kata.array.problems.increasing_triplet import increasing_triplet
 
 
-class TestHasTrend:
+class TestIncreasingTriplet:
     @pytest.mark.parametrize(
         "array, expected",
         [
@@ -19,4 +19,4 @@ class TestHasTrend:
         ],
     )
     def test(self, array: list[int], expected: bool) -> None:
-        assert has_trend(array) == expected
+        assert increasing_triplet(array) == expected

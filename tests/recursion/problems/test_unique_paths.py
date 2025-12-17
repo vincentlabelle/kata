@@ -1,9 +1,9 @@
 import pytest
 
-from kata.recursion.problems.uniquepaths import solve
+from kata.recursion.problems.unique_paths import unique_paths
 
 
-class TestSolve:
+class TestUniquePaths:
     @pytest.mark.parametrize(
         "rows, columns, expected",
         [
@@ -23,4 +23,4 @@ class TestSolve:
         ],
     )
     def test(self, rows: int, columns: int, expected: int) -> None:
-        assert solve(rows, columns) == expected
+        assert unique_paths(rows, columns) == expected

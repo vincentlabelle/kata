@@ -1,4 +1,4 @@
-def sort(array: list[int]) -> list[int]:
+def sort_temperatures(array: list[int]) -> list[int]:
     """Sort an array of temperature readings for healthy people (i.e., from
     97.0 to 99.0 F with temperatures represented as `int`) in linear time.
 

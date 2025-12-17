@@ -1,6 +1,5 @@
 def reverse[T](array: list[T]) -> None:
-    """Reverse `array` in-place with constant space. The time complexity of
-    this operation is O(n).
+    """Reverse `array` in-place with constant space in linear time.
 
     Parameters
     ----------

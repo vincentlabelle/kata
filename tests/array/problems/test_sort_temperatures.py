@@ -1,9 +1,9 @@
 import pytest
 
-from kata.array.problems.counting import sort
+from kata.array.problems.sort_temperatures import sort_temperatures
 
 
-class TestSort:
+class TestSortTemperatures:
     @pytest.mark.parametrize(
         "array",
         [
@@ -17,4 +17,4 @@ class TestSort:
         ],
     )
     def test(self, array: list[int]) -> None:
-        assert sort(array) == sorted(array)
+        assert sort_temperatures(array) == sorted(array)

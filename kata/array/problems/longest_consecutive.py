@@ -1,8 +1,8 @@
-def get_longest(array: list[int]) -> int:
+def longest_consecutive(array: list[int]) -> int:
     """Get the length of the longest consecutive sequence of values in `array`.
-    The consecutive values do not have to be adjacent.
+    The consecutive values do not have to be adjacent nor ordered.
 
-    The time complexity of this operation is O(n).
+    The algorithm must run in O(n) time.
 
     Parameters
     ----------

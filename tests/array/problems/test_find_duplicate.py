@@ -1,9 +1,9 @@
 import pytest
 
-from kata.array.problems.duplicate import search
+from kata.array.problems.find_duplicate import find_duplicate
 
 
-class TestSearch:
+class TestFindDuplicate:
     @pytest.mark.parametrize(
         "array, expected",
         [
@@ -17,4 +17,4 @@ class TestSearch:
         ],
     )
     def test(self, array: list[str], expected: str | None) -> None:
-        assert search(array) == expected
+        assert find_duplicate(array) == expected

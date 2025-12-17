@@ -1,9 +1,9 @@
 import pytest
 
-from kata.array.problems.consecutive import get_longest
+from kata.array.problems.longest_consecutive import longest_consecutive
 
 
-class TestGetLongest:
+class TestLongestConsecutive:
     @pytest.mark.parametrize(
         "array, expected",
         [
@@ -19,4 +19,4 @@ class TestGetLongest:
         ],
     )
     def test(self, array: list[int], expected: int) -> None:
-        assert get_longest(array) == expected
+        assert longest_consecutive(array) == expected

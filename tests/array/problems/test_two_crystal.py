@@ -1,9 +1,9 @@
 import pytest
 
-from kata.array.problems.crystal import search
+from kata.array.problems.two_crystal import two_crystal
 
 
-class TestSearch:
+class TestTwoCrystal:
     @pytest.mark.parametrize(
         "breaks, expected",
         [
@@ -28,4 +28,4 @@ class TestSearch:
         ],
     )
     def test(self, breaks: list[bool], expected: int) -> None:
-        assert search(breaks) == expected
+        assert two_crystal(breaks) == expected

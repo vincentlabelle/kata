@@ -2,13 +2,12 @@ from functools import lru_cache
 
 
 @lru_cache
-def solve(rows: int, columns: int) -> int:
-    """Solve the unique paths problem. The time complexity of this algorithm is
-    O(n * m).
+def unique_paths(rows: int, columns: int) -> int:
+    """Given a grid of `rows` and `columns`, calculate the number of possible
+    "shortest" paths from the upper-leftmost square to the lower-rightmost
+    square.
 
-    In the unique paths problem, you have a grid of `rows` and `columns` and you
-    must calculate the number of possible "shortest" paths from the
-    upper-leftmost square to the lower-rightmost square.
+    The algorithm must run in O(n * m).
 
     Parameters
     ----------
@@ -26,4 +25,4 @@ def solve(rows: int, columns: int) -> int:
         return 0
     if rows == 1 or columns == 1:
         return 1
-    return solve(rows - 1, columns) + solve(rows, columns - 1)
+    return unique_paths(rows - 1, columns) + unique_paths(rows, columns - 1)

@@ -1,9 +1,9 @@
 import pytest
 
-from kata.array.problems.stock import maximum
+from kata.array.problems.maximum_profit import maximum_profit
 
 
-class TestMaximum:
+class TestMaximumProfit:
     @pytest.mark.parametrize(
         "array, expected",
         [
@@ -22,4 +22,4 @@ class TestMaximum:
         ],
     )
     def test(self, array: list[int], expected: int) -> None:
-        assert maximum(array) == expected
+        assert maximum_profit(array) == expected

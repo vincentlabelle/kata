@@ -1,9 +1,9 @@
 import pytest
 
-from kata.array.problems.unique import search
+from kata.array.problems.find_unique import find_unique
 
 
-class TestSearch:
+class TestFindUnique:
     @pytest.mark.parametrize(
         "array, expected",
         [
@@ -16,4 +16,4 @@ class TestSearch:
         ],
     )
     def test(self, array: list[str], expected: str | None) -> None:
-        assert search(array) == expected
+        assert find_unique(array) == expected

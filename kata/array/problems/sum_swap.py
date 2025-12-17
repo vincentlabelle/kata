@@ -1,8 +1,8 @@
-def swap(one: list[int], two: list[int]) -> tuple[int, int] | None:
+def sum_swap(one: list[int], two: list[int]) -> tuple[int, int] | None:
     """Find one number from each array that can be swapped to cause the two
-    array sums to be equal. The indexes of those numbers are returned.
+    array sums to be equal. The indexes of those numbers must be returned.
 
-    The time complexity of this operation is O(n + m).
+    The algorithm must run in O(n + m) time.
 
     Parameters
     ----------

@@ -1,13 +1,12 @@
 import math
 
 
-def search(breaks: list[bool]) -> int:
-    """Search for the floor in the two crystal balls problem. The time
-    complexity of this algorithm is O(sqrt(n)) which is the optimal solution.
-
-    In the two crystal balls problem, you are looking for the first floor in
-    a building at which a crystal ball would break if it was dropped from that
+def two_crystal(breaks: list[bool]) -> int:
+    """Given two identical crystal balls and a building of n floors, find the
+    first floor at which a crystal ball would break if it was dropped from that
     floor.
+
+    The algorithm must run in O(sqrt(n)) time.
 
     Parameters
     ----------

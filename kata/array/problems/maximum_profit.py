@@ -1,11 +1,11 @@
 import sys
 
 
-def maximum(array: list[int]) -> int:
+def maximum_profit(array: list[int]) -> int:
     """Given an array of stock prices, find the greatest profit that could be
     made from a single buy following by a single sell transaction.
 
-    The time complexity of this operation is O(n).
+    The algorithm must run in O(n) time.
 
     Parameters
     ----------

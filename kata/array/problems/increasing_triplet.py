@@ -1,9 +1,9 @@
 import sys
 
 
-def has_trend(array: list[int]) -> bool:
-    """Verify if `array` contains an upward trend composed of three values.
-    The time complexity of this operation is O(n).
+def increasing_triplet(array: list[int]) -> bool:
+    """Verify if `array` contains an upward trend composed of three values
+    in linear time.
 
     Parameters
     ----------

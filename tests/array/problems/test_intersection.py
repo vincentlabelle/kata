@@ -1,9 +1,9 @@
 import pytest
 
-from kata.array.problems.intersection import intersect
+from kata.array.problems.intersection import intersection
 
 
-class TestIntersect:
+class TestIntersection:
     @pytest.mark.parametrize(
         "a, b, expected",
         [
@@ -16,5 +16,5 @@ class TestIntersect:
         ],
     )
     def test(self, a: list[int], b: list[int], expected: list[int]) -> None:
-        actual = intersect(a, b)
+        actual = intersection(a, b)
         assert actual == expected
