@@ -7,11 +7,11 @@ def urlify(array: list[str], count: int) -> None:
 
     As an example, the following inputs:
 
-    `["M", "r", " ", "J", "o", "n", "h", " ", " "]`, and `7`
+    `["M", "r", " ", "J", "o", "h", "n", " ", " "]`, and `7`
 
     yields the following output:
 
-    `["M", "r", "%", "2", "0", "J", "o", "n", "h"]`.
+    `["M", "r", "%", "2", "0", "J", "o", "h", "n"]`.
 
     The algorithm must run in O(n) time and O(1) space.
 
