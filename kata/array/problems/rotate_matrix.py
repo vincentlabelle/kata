@@ -1,4 +1,4 @@
-def rotate(matrix: list[list[int]]) -> None:
+def rotate_matrix(matrix: list[list[int]]) -> None:
     """Given an square matrix, rotate (in-place) the matrix by 90 degrees
     (clockwise).
 

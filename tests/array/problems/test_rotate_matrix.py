@@ -1,9 +1,9 @@
 import pytest
 
-from kata.array.problems.rotate import rotate
+from kata.array.problems.rotate_matrix import rotate_matrix
 
 
-class TestRotate:
+class TestRotateMatrix:
     @pytest.mark.parametrize(
         "matrix, expected",
         [
@@ -58,7 +58,7 @@ class TestRotate:
         matrix: list[list[int]],
         expected: list[list[int]],
     ) -> None:
-        rotate(matrix)
+        rotate_matrix(matrix)
         assert matrix == expected
 
     @pytest.mark.parametrize(
@@ -73,4 +73,4 @@ class TestRotate:
     )
     def test_when_raises_value_error(self, matrix: list[list[int]]) -> None:
         with pytest.raises(ValueError):
-            rotate(matrix)
+            rotate_matrix(matrix)

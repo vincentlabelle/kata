@@ -19,6 +19,7 @@ class TestOneAway:
             ("abc", "add", False),
             ("", "ab", False),
             ("", "a", True),
+            ("a", "", True),
             ("a", "ab", True),
             ("a", "ba", True),
             ("a", "bd", False),
