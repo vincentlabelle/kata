@@ -1,10 +1,10 @@
 import pytest
 
-from kata.linked.problems.remove import remove
+from kata.linked.problems.remove_preserve import remove_preserve
 from kata.linked.structures.snode import SNode
 
 
-class TestRemove:
+class TestRemovePreserve:
     @pytest.fixture(scope="function")
     def linked(self) -> SNode[int]:
         return SNode(0, next_=SNode(1, next_=SNode(2)))
@@ -24,7 +24,7 @@ class TestRemove:
         expected: SNode[int],
     ) -> None:
         node = self._traverse(linked, index)
-        remove(node)
+        remove_preserve(node)
         assert linked == expected
 
     def _traverse(self, linked: SNode[int] | None, index: int) -> SNode[int]:

@@ -1,7 +1,7 @@
 from kata.linked.structures.snode import SNode
 
 
-def remove[T](node: SNode[T]) -> None:
+def remove_preserve[T](node: SNode[T]) -> None:
     """Remove `node` from the linked list it is a part of while preserving the
     entire remaining list.
 
