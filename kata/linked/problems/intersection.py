@@ -1,9 +1,9 @@
 from kata.linked.structures.snode import SNode
 
 
-def intersection(one: SNode[int], two: SNode[int]) -> int | None:
-    """Given two linked list, find an intersecting value (i.e., a value which
-    is in both list).
+def intersection(one: SNode[int], two: SNode[int]) -> SNode[int] | None:
+    """Given two linked list, determine if the two lists intersect
+    (by reference) and return the intersecting node.
 
     The algorithm must run in O(n + m) time.
 
@@ -16,8 +16,8 @@ def intersection(one: SNode[int], two: SNode[int]) -> int | None:
 
     Returns
     -------
-    int | None
-        The intersecting value, or `None` if the list do not intersect.
+    SNode[int] | None
+        The intersecting node, or `None` if the lists do not intersect.
     """
     set_ = _unique(one)
     return _search(two, set_)
@@ -27,15 +27,15 @@ def _unique(one: SNode[int]) -> set[int]:
     set_: set[int] = set()
     current: SNode[int] | None = one
     while current is not None:
-        set_.add(current.value)
+        set_.add(id(current))
         current = current.next
     return set_
 
 
-def _search(two: SNode[int], set_: set[int]) -> int | None:
+def _search(two: SNode[int], set_: set[int]) -> SNode[int] | None:
     current: SNode[int] | None = two
     while current is not None:
-        if current.value in set_:
-            return current.value
+        if id(current) in set_:
+            return current
         current = current.next
     return None
