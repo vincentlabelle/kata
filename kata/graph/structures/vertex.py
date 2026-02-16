@@ -4,8 +4,7 @@ from typing import Self
 class Vertex[T]:
     """Representation of a vertex in a graph.
 
-    Note that, after construction, the vertex has no adjacent vertices.
-    Therefore, they must be added post-construction.
+    Vertices are compared using referential equality.
 
     Parameters
     ----------
