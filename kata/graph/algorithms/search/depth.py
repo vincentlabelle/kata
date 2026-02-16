@@ -20,17 +20,17 @@ def search[T](vertex: Vertex[T], value: T) -> Vertex[T] | None:
         Vertex containing the value to be found, or `None` if the value wasn't
         found.
     """
-    return _search(vertex, value, {})
+    return _search(vertex, value, set())
 
 
 def _search[T](
     vertex: Vertex[T],
     value: T,
-    seen: dict[Vertex[T], bool],
+    seen: set[Vertex[T]],
 ) -> Vertex[T] | None:
     if vertex.value == value:
         return vertex
-    seen[vertex] = True
+    seen.add(vertex)
     for adjacent in vertex.adjacents:
         if adjacent not in seen:
             found = _search(adjacent, value, seen)
