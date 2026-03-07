@@ -1,5 +1,5 @@
 def next_number(value: int) -> int:
-    """Given a strictly positive integer, returns the next largest number that
+    """Given a strictly positive integer, return the next largest number that
     have the same number of 1 bits in their binary representation.
 
     Parameters
@@ -29,8 +29,8 @@ def _raise_if_negative_or_zero(value: int) -> None:
 
 def _next(value: int) -> int:
     pivot = _find(value)
-    value = _move_up(value, pivot)
-    return _move_down(value, pivot)
+    v = _move_up(value, pivot)
+    return _move_down(v, pivot)
 
 
 def _find(value: int) -> int:
@@ -51,9 +51,10 @@ def _move(value: int, prev: int, new: int) -> int:
 
 
 def _move_down(value: int, pivot: int) -> int:
+    v = value
     i, j = pivot - 1, 0
-    while i > j and (value & (1 << i)) != 0 and (value & (1 << j)) == 0:
-        value = _move(value, i, j)
+    while i > j and (v & (1 << i)) != 0 and (v & (1 << j)) == 0:
+        v = _move(v, i, j)
         i -= 1
         j += 1
-    return value
+    return v

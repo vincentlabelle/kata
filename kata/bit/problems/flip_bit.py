@@ -1,6 +1,6 @@
 def flip_bit(value: int) -> int:
-    """Given an integer for which you can flip exactly one bit from 0 to 1,
-    find the length of the longest seqeunce of 1s which can be created.
+    """Given a positive integer for which you can flip exactly one bit from 0
+    to 1, find the length of the longest sequence of 1s which can be created.
 
     Parameters
     ----------
