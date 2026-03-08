@@ -39,5 +39,5 @@ def _flip(value: int) -> int:
                 previous = current
             current = 0
         max_ = max(current + previous + 1, max_)
-        v = v >> 1
+        v >>= 1
     return max_
