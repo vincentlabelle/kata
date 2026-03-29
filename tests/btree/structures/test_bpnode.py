@@ -66,12 +66,12 @@ class TestBpNodeRight:
 
     def test_set_when_node(self, node: BPNode[int], right: BPNode[int]) -> None:
         other = BPNode(3)
-        previous = BPNode(4, left=other)
+        previous = BPNode(4, right=other)
         node.right = other
         assert node.right is other
         assert other.parent is node
         assert right.parent is None
-        assert previous.left is None
+        assert previous.right is None
 
     def test_unset(self, node: BPNode[int], right: BPNode[int]) -> None:
         node.right = None

@@ -31,3 +31,8 @@ class TestFirstCommonAncestor:
         )
         assert first_common_ancestor(three, four) == one
         assert first_common_ancestor(four, three) == one
+
+    def test_when_none(self) -> None:
+        one = BPNode(1)
+        two = BPNode(2)
+        assert first_common_ancestor(one, two) is None
