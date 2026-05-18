@@ -1,5 +1,5 @@
 def rotate_matrix(matrix: list[list[int]]) -> None:
-    """Given an square matrix, rotate (in-place) the matrix by 90 degrees
+    """Given a square matrix, rotate (in-place) the matrix by 90 degrees
     (clockwise).
 
     The algorithm must run in O(n) time where n is the number of elements
